@@ -1,0 +1,54 @@
+
+.searchField {
+	border: 1px solid black;
+}
+.showData {
+	border: 1px solid black;
+	height: 350px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+body .container .dataContainer .showData  .dataColumn  .ulTitle {
+	list-style-type: none;
+	margin-left:15px;
+	margin-right: 15px;
+	padding: 0;
+}
+body .container .dataContainer .showData  .dataColumn  .ulTitle li:hover {
+	background-color: cyan;
+	cursor: pointer;
+}
+
+.dataContainer {
+	display: flex;
+	flex-direction: row;
+}
+.pokemonName {
+	height: 50px;
+}
+.groupTitle {
+	background-color: cyan;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	height: 35px;
+	padding: 0 15px;
+}
+.groupTitle .ulTitle {
+	display: flex;
+	flex-direction: column;
+}
+/*.groupTitle .ulTitle li {
+	list-style-type: none;
+	margin-left:15px;
+	margin-right: 15px;
+	display: none;
+}*/
+.dataColumn {
+	overflow-y: auto;
+	height: 100%;
+}

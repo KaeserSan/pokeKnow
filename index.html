@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>PokeKnow</title>
+	
+	<!-- CUSTOM CSS -->
+	<link rel="stylesheet" href="css/style.css">	
+	
+	<!-- BOOTSTRAP -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	
+	<!-- JQUERY UI -->
+	<!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+
+</head>
+<body>
+	<header>
+		<h1>PokeKnow</h1>
+	</header>
+	<div ng-view></div>
+	
+	<div class="container" ng-controller="mainCtrl">
+		<div class="searchField">
+			<span>Pokemon's name</span>
+			<input type="text" ng-model="$root.searchModel" placeholder="pokemon's name..." value="pikachu"/>
+			<button ng-click="searchPokemons()">Search...</button>
+		</div>
+
+		<div ng-controller="dataCtrl">
+			<div class="pokemonName">
+				<h1>{{ pokemon.name }}</h1>
+			</div>			
+			<div  class="dataContainer">
+				<div class="showData col-md-2"> <!-- abilities[] .ability.name -->
+					<div class="groupTitle">
+						<h5>Abilities</h5>
+					</div>
+					<div class="dataColumn">
+						<ul class="ulTitle">
+							<li ng-repeat="abi in pokemon.abilities"><em>{{abi.ability.name}}</em></li>
+						</ul>
+					</div>
+				</div>
+				<div class="showData col-md-2"> <!-- forms[] .name -->
+					<div class="groupTitle">
+						<h5>Forms</h5>
+					</div>
+					<div class="dataColumn">
+						<ul class="ulTitle">
+							<li ng-repeat="form in pokemon.forms"><em>{{form.name}}</em></li>
+						</ul>
+					</div>
+				</div>
+				<div class="showData col-md-2"> <!-- moves[] .move.name  -->
+					<div class="groupTitle">
+						<h5>Moves</h5>
+					</div>
+					<div class="dataColumn">
+						<ul class="ulTitle">
+							<li ng-repeat="mov in pokemon.moves"><em>{{mov.move.name}}</em></li>
+						</ul>
+					</div>
+				</div>
+				<div class="showData col-md-2"> <!-- stats[] .stat.name .basestat -->
+					<div class="groupTitle"><h5>Stats</h5></div>
+					<div class="dataColumn">
+						<ul class="ulTitle">
+							<li ng-repeat="stat in pokemon.stats"><em>{{stat.stat.name}}</em> - {{stat.base_stat}}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="showData col-md-2"> <!-- sprites <- 'black_default' -->
+					<div class="groupTitle"><h5>Sprites</h5></div>
+					<div class="dataColumn">
+						<ul class="ulTitle">
+							<li><em>back_default:</em><img src="{{pokemon.sprites.back_default}}"/></li>
+							<li><em>back_female:</em><img src="{{pokemon.sprites.back_female}}"/></li>
+							<li><em>back_shiny:</em><img src="{{pokemon.sprites.back_shiny}}"/></li>
+							<li><em>back_shiny_female:</em><img src="{{pokemon.sprites.back_shiny_female}}"/></li>
+							<li><em>front_default:</em><img src="{{pokemon.sprites.front_default}}"/></li>
+							<li><em>front_female:</em><img src="{{pokemon.sprites.front_female}}"/></li>
+							<li><em>front_shiny:</em><img src="{{pokemon.sprites.front_shiny}}"/></li>
+							<li><em>front_shiny_female:</em><img src="{{pokemon.sprites.front_shiny_female}}"/></li>
+						</ul>
+					</div>
+					<div><img src="{{}}" alt=""></div>
+				</div>
+				<div class="showData col-md-2"> <!-- types[] .type.name -->
+					<div class="groupTitle"><h5>Types</h5></div>
+					<div class="dataColumn">
+						<ul class="ulTitle">
+							<li ng-repeat="type in pokemon.types"><em>{{type.type.name}}</em></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- 
+name
+abilities[] .ability.name
+forms[] .name
+moves[] .move.name 
+stats .stat.name .basestat
+sprites <- 'black_default'
+types[] .type.name
+-->
+
+
+
+	</div>
+
+
+	
+	
+	<!-- JQUERY -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	
+	<!-- BOOTSTRAP -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+	<!-- UNDERSCORE -->
+	<!-- https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js -->
+	
+	<!-- ANGULAR -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+	
+	<!-- ANGULAR ROUTE -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+	
+	<!-- JQUERY UI -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> -->
+	
+	<!-- MOOTOOLS -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/mootools/1.6.0/mootools.min.js"></script> -->
+	
+	<!-- PROTOTYPE -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script> -->
+
+	<!-- SCRIPT.ACULO.US -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js"></script> -->
+
+
+	<!-- MY ANGULAR APP -->
+	<script src="js/app.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/services.js"></script>
+	<script src="js/routing.js"></script>
+	<script src="js/config.js"></script>
+
+
+</body>
+</html>
+
